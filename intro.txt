@@ -1,0 +1,16 @@
+sistema extensivo, alta escala, cloud native.
+posso fazer meu app rodar em qualquer cloud com ele.
+pode agendar e executar app em maquinas.
+preciso da imagem do container.
+fornece deploy automatizado.
+sistema de orquestração.
+altamente resiliente.
+altamente escalavel.
+
+gerenciamento de aplicações em containeres em um ambiente clusterizado.
+melhores maneiras de gerenciar componentes e serviços relacionados e distribuidos em diversas infraestruturas.
+
+em sua base o kubernetes reune maquinas fisicas ou virtuais,
+em um cluster utilizando uma rede compartilhada para comunicar em cada servidor.
+esse cluster é a plataforma fisica onde todos os componentes, recursos, e cargas de trabalho do kubernetes sao configurados.
+

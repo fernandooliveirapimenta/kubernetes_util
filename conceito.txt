@@ -1,0 +1,11 @@
+kluster > nós >
+
+POD: menor unidade dentro de um cluster, ex: posso ter um pod que roda JAVA
+ReplicationController: Vai determinar quantas instancias tenho do meu pod, RC escalonamento do meu POD,
+Services: vai distribuir ips para o RC
+NamasPaces: dev, hom, prod
+etcd: banco de chave e valor, onde o kube vai quardar infos sobre o cluster, portas  e etc
+Master Node: gerenciar todo o cluster.
+API Server: api exposta do cluster
+kublet: vai garantir que os containers serao criados conforme especificados no arquivo yaml
+ 

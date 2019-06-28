@@ -1,0 +1,29 @@
+systemctl stop firewalld // parando iptables para não entrar em conflito com o docker
+systemctl disable firewalld // para não ser reiniciado
+systemctl status ntpd
+yum -y install etcd kubernetes // etcd + kubernetes + docker
+vim /etc/etcd/etcd.conf // editar arquivo para escutar requisicoes de fora
+//ETCD_NAME=default ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379"
+vim /etc/kubernetes/apiserver // colocar 0.0.0.0 e descomentar algumas linhas
+//KUBE_API_ADDRESS="--address=0.0.0.0" //funcionar de forma aberta
+//KUBE_API_PORT="--port=8080"
+//KUBELET_PORT="--kublet-port=10250"
+
+systemctl restart etcd
+systemctl restart kube-apiserver
+systemctl restart kube-controller-manager
+systemctl restart kube-scheduler
+
+etcdctl mk /atomic.io/network/config '{"Network":"172.17.0.0/16"}'
+
+//Configurando os nós *******************************************************************
+yum install -y flannel kubernetes
+vim /etc/sysconfig/flanneld
+//FLANNEL_ETCD_ENDPOINTS="http://{ipPrivadoDoMaster}:2379"
+vim /etc/kubernetes/config
+//KUBE_MASTER="--master=http://{ipPrivadoDoMaster}:8080"
+
+
+
+
+
